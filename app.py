@@ -157,7 +157,7 @@ if selected == 'Twitter NLP':
             ip_words = ip.split(" ")
             ip_words = ip_words[1:]
             
-            with open("stop.txt", "r") as pos:
+            with open("stop.txt", "r",encoding="ISO-8859-1) as pos:
                 stop_words = pos.read().split("\n")
             
             #stop_words = list(stopwords.words('english'))
@@ -175,11 +175,11 @@ if selected == 'Twitter NLP':
 
             ip_string = " ".join(ip_words)
             
-            with open("positive-words.txt", "r") as pos:
+            with open("positive-words.txt", "r",encoding="ISO-8859-1) as pos:
                 poswords = pos.read().split("\n")
             ip_pos = " ".join ([w.strip() for w in ip_words if w in poswords])
             
-            with open("negative-words.txt", "r") as neg:
+            with open("negative-words.txt", "r",encoding="ISO-8859-1) as neg:
                 negwords = neg.read().split("\n")
             ip_neg = " ".join ([w.strip() for w in ip_words if w in negwords])
             
