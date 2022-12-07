@@ -161,7 +161,7 @@ if selected == 'Twitter NLP':
                 stop_words = pos.read().split("\n")
             
             #stop_words = list(stopwords.words('english'))
-            search_words = [word.strip().lower() for word in query.split(',')]
+            search_words = [word.strip().lower() for word in query.split()]
             stop_words.extend(search_words)
             
             
