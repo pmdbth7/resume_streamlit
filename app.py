@@ -90,7 +90,7 @@ if selected == 'Info':
 if selected == 'Twitter NLP':
         st.markdown('''
                     ## Please Provide data into the sidebar and hit search
-                    ### Refer to Currents trends on twitter
+                    ### Refer to Current trends on twitter
                     ''')
         trends_list = []
         st.sidebar.title('Sidebar')
