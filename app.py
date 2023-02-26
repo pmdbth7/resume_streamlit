@@ -16,7 +16,7 @@ from sklearn.metrics import silhouette_score
 
 st.set_page_config(layout="wide")
 
-@st.cache()
+@st.cache_data()
 def load_pack_warn():
     nltk.download('wordnet')
     nltk.download('omw-1.4')
@@ -90,7 +90,7 @@ if selected == 'Info':
 if selected == 'Twitter NLP':
         st.markdown('''
                     ## Please Provide data into the sidebar and hit search
-                    ### Refer to Current trends on twitter
+                    ### Refer to Currents trends on twitter
                     ''')
         trends_list = []
         st.sidebar.title('Sidebar')
@@ -102,7 +102,7 @@ if selected == 'Twitter NLP':
                              ).generate(ip_string)
             return wordcloud
         
-        @st.cache()
+        @st.cache_data()
         def get_trends():
             trends = snt.TwitterTrendsScraper().get_items()
             for trend in trends:
@@ -119,7 +119,7 @@ if selected == 'Twitter NLP':
         
         button = st.sidebar.button('search')
         
-        @st.cache(suppress_st_warning=True)
+        @st.cache_data()
         def get_tweets(query,tweets_count):
             generator = snt.TwitterSearchScraper(query).get_items()
             tweets_list = []
@@ -157,7 +157,7 @@ if selected == 'Twitter NLP':
             ip_words = ip.split(" ")
             ip_words = ip_words[1:]
             
-            with open("stop.txt", "r",encoding="ISO-8859-1") as pos:
+            with open("stop.txt", "r") as pos:
                 stop_words = pos.read().split("\n")
             
             #stop_words = list(stopwords.words('english'))
@@ -175,11 +175,11 @@ if selected == 'Twitter NLP':
 
             ip_string = " ".join(ip_words)
             
-            with open("positive-words.txt", "r",encoding="ISO-8859-1") as pos:
+            with open("positive-words.txt", "r") as pos:
                 poswords = pos.read().split("\n")
             ip_pos = " ".join ([w.strip() for w in ip_words if w in poswords])
             
-            with open("negative-words.txt", "r",encoding="ISO-8859-1") as neg:
+            with open("negative-words.txt", "r") as neg:
                 negwords = neg.read().split("\n")
             ip_neg = " ".join ([w.strip() for w in ip_words if w in negwords])
             
@@ -231,7 +231,7 @@ if selected == 'Flipkart product analysis':
         search = st.sidebar.button('search')
         
         product_info = []
-        @st.cache(suppress_st_warning=True)
+        @st.cache_data()
         def data_extraction(query,pages_count):
             product_info_list = []
             urls = []
