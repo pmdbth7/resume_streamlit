@@ -8,5 +8,5 @@ scikit_learn==1.1.3
 scipy==1.9.1
 snscrape==0.4.3.20220106
 streamlit
-streamlit_option_menu==0.3.2
+streamlit_option_menu
 wordcloud==1.8.2.2
